@@ -1,0 +1,65 @@
+Q: 路径 是什么意思？
+A: 使用sys模块，然后使用sys.path.append()将路径导入
+
+Q: 路径 是什么意思？
+A: 使用os.path.dirname 返回不带本文件的文件目录
+
+Q: pip 是什么意思？
+A: pip的报错可以考虑由于依赖版本不对导致的，比如python版本，比如各种包的冲突
+
+Q: argparse 是什么意思？
+A: https://blog.csdn.net/qq_43391414/article/details/120097139
+
+Q: ipynb 报错 是什么意思？
+A: 缺少一些必要参数
+
+Q: ipynb 解决方案 是什么意思？
+A: 在最后的封装中使用parser.parse_args(args=[])
+
+Q: ipynb 报错原因 是什么意思？
+A: 由于parse_args会从系统自动的读取参数，但在ipynb中会自动传入路径字符串，导致参数不匹配，需要通过 parser.parse_args(args=[]) 解决。
+
+Q: grandtruth 定义 是什么意思？
+A: 标准真相
+
+Q: grandtruth 应用 是什么意思？
+A: 运用到人工智能领域的话可以认为是正确答案，比如说物体识别中的标注。
+
+Q: 枚举 规范 是什么意思？
+A: 枚举可以实现一个数据到另一个数据的映射。
+
+Q: 枚举 代码 是什么意思？
+A: 使用from enum import Enum 然后定义class your_class(Enum)之后在类中直接写 one = one two = two 。
+
+Q: 枚举 使用 是什么意思？
+A: 在我们定义好的类中不需要init 示例，可以直接使用类进行获取映射。your_class(one).name
+
+Q: 枚举 注意 是什么意思？
+A: 使用enum中，需要使用后面的匹配前面的，然后使用name获取到前面的。
+
+Q: 注解 内容 是什么意思？
+A: @classmethod 注解这个方法为类方法而不是实例方法。
+
+Q: 注解 核心 是什么意思？
+A: 注解为类方法之后可以通过类直接进行调用，而不用实例化这个类，然后在调用里面的方法了。
+
+Q: 注解 误解 是什么意思？
+A: 类方法的第一个参数是cls 是class的缩写，而实例方法的第一个参数是self。
+
+Q: yolo 背景 是什么意思？
+A: 在类人注意力机制中利用yolo的置信度进行计算reward
+
+Q: yolo 核心 是什么意思？
+A: 分割出图像的物体，然后进行标注
+
+Q: yolo 代码 是什么意思？
+A: 从from ultralytics import YOLO 然后初始化model, yolo_model = YOLO("yolo11n.pt") ,之后直接可以使用yolo_model(img_path , save=true , save_path = '')
+
+Q: mel 背景 是什么意思？
+A: 在深度学习的过程中，对于图像来说，每一个像素的维度就是我们想要拟合训练的，但是对于音频来说，我们拿不到这种数据。
+
+Q: mel 方法 是什么意思？
+A: 在传统的方式中，我们采用了语谱图。x轴是时间，y轴是频率，xy点为幅度。但人类对声音的感知是对数的，因此需要 mel 语谱图。
+
+Q: mel 技术 是什么意思？
+A: mel通过对初始频率f进行二次转化，得到了一个符合人耳预期的特征图。
