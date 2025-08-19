@@ -1,34 +1,54 @@
+import sys
 import json
 import re
-class Data_impl:
+from Node import Node
+class DataImpl:
     """
     path: database path , this file is a json
     """
-    def __init__(self , path):
+    def __init__(self , path , graph = None):
         self.path = path
+        self.graph = graph
+        self.node = Node()
     def _input(self , data):
-        with open(self.path , 'a' , encoding='utf-8') as f:
-            json.dump(data , f , ensure_ascii=False)
+        
+        self.node.push()
     
     def input(self, data):
         """
         data : json , input to the database
         """
-        self._input(data = data)
+        key = data.keys()[0] # 获取到第一个key
+        value = data[key]    # 获取到对应的value 
 
-    def _get(self):
-        with open(self.path , 'r') as f:
-            data = json.load(f)
-        return data
+        self.node.key = key
+        self.node.value = value
+
+
+        self._input()
+
+    def _get_all(self):
+        """
+        利用图的遍历进行获取到所有的node节点
+        """
+        pass
     
-    def get(self):
+    def get_all(self):
         """
         get the database
         """
-        return self._get()
+        return self._get_all()
+    
+
+    def get_node(self , key):
+        """
+        模糊遍历每一个node的key，返回匹配的value
+        """
+        pass
     
     def search(self,pattern):
         pass
+    
     def regex_keys(self , key):
         """
         key : josn key 
@@ -50,4 +70,4 @@ class Data_impl:
         """
         pass
     
-data_impl = Data_impl("./test.json")
+data_impl = DataImpl("./test.json")

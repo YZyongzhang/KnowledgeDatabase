@@ -1,8 +1,8 @@
-from DataImpl import Data_impl
+from DataBase.DataImpl import Data_impl
 from Window.win import Windows
 from PyQt6.QtWidgets import QApplication
 import sys
-from DataImpl import data_impl
+from DataBase.DataImpl import data_impl
 
 
 
