@@ -37,3 +37,17 @@ class Data_impl:
         # pattern = f"*{key}*"
         pattern = re.compile(f".*{re.escape(key)}.*")
         return {k: v for k, v in self._get().items() if re.search(pattern, k)}
+    
+    def file_write(self , file_path):
+        """
+        给定file_path的text文件，将该文件转化为json
+        """
+        pass
+
+    def load_json_window(self):
+        """
+        创建一个可供用户写入知识的窗口。
+        用户在该窗口写入的内容将会把load在数据库中。
+        """
+        pass
+    
