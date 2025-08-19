@@ -6,10 +6,9 @@ class Data_impl:
     """
     def __init__(self , path):
         self.path = path
-    
     def _input(self , data):
-        with open(self.path , 'a') as f:
-            json.dump(data , f)
+        with open(self.path , 'a' , encoding='utf-8') as f:
+            json.dump(data , f , ensure_ascii=False, indent=4)
     
     def input(self, data):
         """
@@ -51,3 +50,4 @@ class Data_impl:
         """
         pass
     
+data_impl = Data_impl("./test.json")

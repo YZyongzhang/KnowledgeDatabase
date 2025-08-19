@@ -2,11 +2,13 @@ from DataImpl import Data_impl
 from Window.win import Windows
 from PyQt6.QtWidgets import QApplication
 import sys
+from DataImpl import data_impl
 
 
 
 def handle_data(data):
-    print(data)
+    data_impl.input(data=data)
+
 if __name__ == "__main__":
 
     app = QApplication(sys.argv)
