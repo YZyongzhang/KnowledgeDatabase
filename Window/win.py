@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QApplication , QMainWindow , QTextEdit ,  QLayout , QPushButton , QVBoxLayout , QLabel , QWidget
+from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import pyqtSignal
 import sys
 class Windows(QMainWindow):
@@ -26,7 +27,7 @@ class Windows(QMainWindow):
         central = QWidget()
         central.setLayout(self.win_layout)
         self.setCentralWidget(central)
-
+        self.setWindowIcon(QIcon('./Window/img.jpg'))
     def _summit(self):
         key = self.key_input.toPlainText()
         value = self.value_input.toPlainText()
