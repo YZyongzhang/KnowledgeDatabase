@@ -32,7 +32,7 @@ class Graph:
         pin_id = self.rule_base_getid(node)
 
         if len(self.pins) != 0:
-            pin = random.choice(self.pins[pin_id])
+            pin = self.pins[pin_id]
             node.pre = pin
         else:
             node.pre = None
@@ -44,7 +44,7 @@ class Graph:
 
 
     def rule_base_getid(self , node):
-        return node.next
+        return 0
     
 
     def save(self , path):
