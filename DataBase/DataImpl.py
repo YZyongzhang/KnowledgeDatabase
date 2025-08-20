@@ -1,31 +1,30 @@
 import sys
+sys.path.append(r"C:\Users\31120\Desktop\KnowledgeDatabase")
 import json
 import re
-from Node import Node
+from DataBase.Node import Node
+from DataBase.Graph import Graph
+import os
 class DataImpl:
     """
     path: database path , this file is a json
     """
-    def __init__(self , path , graph = None):
-        self.path = path
+    def __init__(self , graph = None):
         self.graph = graph
         self.node = Node()
     def _input(self , data):
         
-        self.node.push()
-    
+        
+        self.node.push(data)
+        self.graph.reseive_node(self.node)
+        self.node.clear()
+
     def input(self, data):
         """
         data : json , input to the database
         """
-        key = data.keys()[0] # 获取到第一个key
-        value = data[key]    # 获取到对应的value 
 
-        self.node.key = key
-        self.node.value = value
-
-
-        self._input()
+        self._input(data)
 
     def _get_all(self):
         """
@@ -69,5 +68,11 @@ class DataImpl:
         用户在该窗口写入的内容将会把load在数据库中。
         """
         pass
-    
-data_impl = DataImpl("./test.json")
+
+    def save(self , path = None):
+        if path is not None:
+            os.makedirs(path , exist_ok=True)
+        self.graph.save(path)
+
+graph = Graph()
+data_impl = DataImpl(graph=graph)
