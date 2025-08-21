@@ -5,6 +5,7 @@ import re
 from DataBase.Node import Node
 from DataBase.Graph import Graph
 import os
+import copy
 class DataImpl:
     """
     path: database path , this file is a json
@@ -16,7 +17,8 @@ class DataImpl:
         
         
         self.node.push(data)
-        self.graph.reseive_node(self.node)
+        copy_node = copy.deepcopy(self.node) # 每一次copy都相当于丢掉了copy的上一次引用，将上一次引用放到丢到内存中。如果程序一直挂起。后期可能会造成内存泄漏。可能想办法把这个凝结成一块
+        self.graph.reseive_node(copy_node) # 这里犯了一个错误，这里执行了self.clear但是这个地方是引用数据类型，所以这里的话放到列表里面的数据直接就被clear掉了。这里需要用一个deepcopy
         self.node.clear()
 
     def input(self, data):
@@ -74,5 +76,5 @@ class DataImpl:
             os.makedirs(path , exist_ok=True)
         self.graph.save(path)
 
-graph = Graph()
+graph = Graph('./database.pkl')
 data_impl = DataImpl(graph=graph)

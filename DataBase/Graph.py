@@ -1,5 +1,6 @@
 import random
 import pickle
+import os
 class GraphStruct:
     def __init__(self):
         self.nodes = list()
@@ -17,13 +18,13 @@ class GraphStruct:
     
 
 class Graph:
-    def __init__(self , database_path=None):
+    def __init__(self , database_path):
         """
         可以输入本地的数据库路径进行load
         """
         
         self.graph_struct = GraphStruct()
-        if database_path is not None:
+        if os.path.exists(database_path):
             self.graph_struct.load(database_path)
         self.pins = self.graph_struct.pins
         
