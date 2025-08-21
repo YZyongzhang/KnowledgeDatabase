@@ -12,7 +12,7 @@ class GraphStruct:
         assert self.block == None
         with open(path , 'rb') as f:
             graphstruct = pickle.load(f)
-        self.nodes = graphstruct.nodes
+        self.nodes = graphstruct.nodes  
         self.pins = graphstruct.pins
         self.block = graphstruct.block
     
