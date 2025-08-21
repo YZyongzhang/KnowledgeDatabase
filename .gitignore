@@ -2,3 +2,4 @@ dist
 *.pkl
 test
 __pycache__
+build
