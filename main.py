@@ -1,8 +1,7 @@
-from DataImpl import Data_impl
 from Window.win import Windows
 from PyQt6.QtWidgets import QApplication
 import sys
-from DataImpl import data_impl
+from DataBase.DataImpl import data_impl
 
 
 
@@ -16,6 +15,7 @@ if __name__ == "__main__":
     window.show()
     window.summit_data.connect(handle_data)
     app.exec()
+    data_impl.save(path=None)
 
 
     

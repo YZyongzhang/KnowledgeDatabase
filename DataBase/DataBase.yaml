@@ -1,0 +1,29 @@
+路径:
+  - 使用sys模块，然后使用sys.path.append()将路径导入
+  - 使用os.path.dirname 返回不带本文件的文件目录
+pip:
+  - pip的报错可以考虑由于依赖版本不对导致的，比如python版本，比如各种包的冲突
+argparse:
+  - https://blog.csdn.net/qq_43391414/article/details/120097139
+  - ipynb:
+      报错: 缺少一些必要参数
+      解决方案: 在最后的封装中使用parser.parse_args(args=[])
+      报错原因: 由于parse_args会从系统自动的读取参数，但是当我们使用命令行的时候这个参数是不会传输的，所以就默认是args = [] , 但是当我们使用ipynb的时候，ipynb会自动的传入一个路径字符串等类的，然后就会出现找不到这个参数。解决这个问题其实也很简单，两种方式，一种是将这个参数固定为null，也就是给出的这个形式，另一种就是在里面写一个字符串的参数接受ipynb里面的数据，然后就不会报错了。
+术语:
+  - grandtruth:
+      定义: 标准真相
+      应用: 运用到人工智能领域的话可以认为是正确答案，比如说物体识别中的标注。
+python:
+  枚举:
+    规范: 枚举可以实现一个数据到另一个数据的映射。
+    代码: 使用from enum import Enum 然后定义class your_class(Enum)之后在类中直接写 one = one two = two 。
+    使用: 在我们定义好的类中不需要init 示例，可以直接使用类进行获取映射。your_class(one).name 
+    注意: 使用enum中，需要使用后面的匹配前面的，然后使用name获取到前面的。
+  注解:
+    内容: @classmethod 注解这个方法为类方法而不是实例方法。
+    核心: 注解为类方法之后可以通过类直接进行调用，而不用实例化这个类，然后在调用里面的方法了。
+    误解: 类方法的第一个参数是cls 是class的缩写，而实例方法的第一个参数是self。
+yolo:
+  背景: 在类人注意力机制中利用yolo的置信度进行计算reward
+  核心: 分割出图像的物体，然后进行标注
+  代码: 从from ultralytics import YOLO 然后初始化model, yolo_model = YOLO("yolo11n.pt") ,之后直接可以使用yolo_model(img_path , save=true , save_path = '')sadfsaf:
